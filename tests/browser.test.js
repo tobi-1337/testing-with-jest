@@ -31,4 +31,17 @@ describe('Clicking "Pusha till stacken"', () => {
         await alert.sendKeys("Bananer");
         await alert.accept();
     });
+
+    it('should show the pushed element on top of stack', async () => {
+        let push = await driver.findElement(By.id('push'));
+        await push.click();
+
+        let alert = await driver.switchTo().alert();
+        await alert.sendKeys("Testobjekt");
+        await alert.accept();
+
+        let top = await driver.findElement(By.id('top_of_stack')).getText();
+        expect(top).toEqual("Bananer");
+    })
 });
+
