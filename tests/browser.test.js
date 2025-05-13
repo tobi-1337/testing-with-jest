@@ -41,7 +41,7 @@ describe('Clicking "Pusha till stacken"', () => {
         await alert.accept();
 
         let top = await driver.findElement(By.id('top_of_stack')).getText();
-        expect(top).toEqual("Bananer");
+        expect(top).toEqual("Testobjekt");
     })
 });
 
